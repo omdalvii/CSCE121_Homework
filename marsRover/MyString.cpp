@@ -3,23 +3,23 @@
 # include "MyString.h"
 
 // Constructors
-myString::myString()
+MyString::MyString()
 {
     // TODO: Complete constructor
 }
 
-myString::myString(const myString& myString)
+MyString::MyString(const MyString& myString)
 {
     // TODO: Complete constructor
 }
 
-myString::myString(const char* s)
+MyString::MyString(const char* s)
 {
     // TODO: Complete constructor
 }
 
 // Destructor
-myString::~myString()
+MyString::~MyString()
 {
     // TODO: Complete destructor
 }
@@ -33,7 +33,7 @@ myString::~myString()
  * If n is greater than the current myString length, the current content is extended by inserting at the end as 
  * many characters as needed to reach a size of n.
 */
-void myString::resize(size_t n)
+void MyString::resize(size_t n)
 {
 
 }
@@ -44,7 +44,7 @@ void myString::resize(size_t n)
  * This capacity is not necessarily equal to the myString length. It can be equal or greater, with the extra 
  * space allowing the object to optimize its operations when new characters are added to the myString.
 */
-size_t myString::capacity() const noexcept
+size_t MyString::capacity() const noexcept
 {
     // TODO: Complete function
     return 0;
@@ -56,7 +56,7 @@ size_t myString::capacity() const noexcept
  * This is the number of actual bytes that conform the contents of the myString, which is not necessarily 
  * equal to its storage capacity.
 */
-size_t myString::size() const noexcept
+size_t MyString::size() const noexcept
 {
     // TODO: Complete function
     return 0;
@@ -68,7 +68,7 @@ size_t myString::size() const noexcept
  * This is the number of actual bytes that conform the contents of the myString, which is not necessarily 
  * equal to its storage capacity.
 */
-size_t myString::length() const noexcept
+size_t MyString::length() const noexcept
 {
     // TODO: Complete function
     return 0;
@@ -84,7 +84,7 @@ size_t myString::length() const noexcept
  * The pointer returned points to the internal array currently used by the myString object to store the characters 
  * that conform its value.
 */
-const char* myString::data() const noexcept
+const char* MyString::data() const noexcept
 {
     // TODO: Complete function
     return new char[0];
@@ -93,7 +93,7 @@ const char* myString::data() const noexcept
 /**
  * Returns whether the myString is empty (i.e. whether its length is 0).
 */
-bool myString::empty() const noexcept
+bool MyString::empty() const noexcept
 {
     // TODO: Complete function
     return false;
@@ -102,7 +102,7 @@ bool myString::empty() const noexcept
 /**
  * Returns a reference to the first character of the myString.
 */
-const char& myString::front() const
+const char& MyString::front() const
 {
     // TODO: Complete function
     return '0';
@@ -114,7 +114,7 @@ const char& myString::front() const
  * The function automatically checks whether pos is the valid position of a character in the myString (i.e., 
  * whether pos is less than the myString length), throwing an out_of_range exception if it is not.
 */
-const char& myString::at(size_t pos) const
+const char& MyString::at(size_t pos) const
 {
     // TODO: Complete function
     return '0';
@@ -123,7 +123,7 @@ const char& myString::at(size_t pos) const
 /**
  * Erases the contents of the string, which becomes an empty string (with a length of 0 characters).
 */
-void myString::clear() noexcept
+void MyString::clear() noexcept
 {
     // TODO: Complete function
 }
@@ -137,9 +137,31 @@ void myString::clear() noexcept
  * Notice that unlike member find_first_of, whenever more than one character is being searched for, 
  * it is not enough that just one of these characters match, but the entire sequence must match.
 */
-size_t myString::find(const myString& str, size_t pos = 0) const noexcept
+size_t MyString::find(const MyString& str, size_t pos = 0) const noexcept
 {
 
 }
 
-// TODO: Add operators
+/**
+ * Assigns a new value to the string, replacing its current contents.
+*/
+MyString& MyString::operator = (const MyString& str)
+{
+    
+}
+
+/**
+ * Extends the string by appending additional characters at the end of its current value
+*/
+MyString& MyString::operator += (const MyString& str)
+{
+    
+}
+
+/**
+ * Inserts the sequence of characters that conforms value of str into os.
+*/
+std::ostream& operator << (std::ostream& os, const MyString& str)
+{
+
+}
