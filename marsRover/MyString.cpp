@@ -51,10 +51,7 @@ size_t MyString::capacity() const noexcept
 }
 
 /**
- * Returns the length of the myString, in terms of bytes.
- * 
- * This is the number of actual bytes that conform the contents of the myString, which is not necessarily 
- * equal to its storage capacity.
+ * Returns the amount of elements contained in MyString
 */
 size_t MyString::size() const noexcept
 {
@@ -139,7 +136,7 @@ void MyString::clear() noexcept
 */
 size_t MyString::find(const MyString& str, size_t pos = 0) const noexcept
 {
-
+    return 0;
 }
 
 /**

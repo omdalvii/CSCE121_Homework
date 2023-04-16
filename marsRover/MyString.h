@@ -3,6 +3,8 @@
 
 class MyString {
     private:
+    char* chars;
+    size_t charCount;
     // TODO: Figure out private members
 
     public:
