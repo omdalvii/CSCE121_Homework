@@ -1,17 +1,46 @@
 # include "TemperatureData.h"
+#include <iostream>
 using std::string;
 
-TemperatureData::TemperatureData() /* TODO */ {
-	// TODO: implement this function
-}
+#define DEBUG(X) std::cout << "[DEBUG] " << X << std::endl;
 
-TemperatureData::TemperatureData(string id, int year, int month, double temperature) /* TODO */ {
-	// TODO: implement this function
-}
+TemperatureData::TemperatureData():
+id(0),
+year(0),
+month(0),
+temperature(-99.99) {}
+
+TemperatureData::TemperatureData(string id, int year, int month, double temperature):
+id(id),
+year(year),
+month(month),
+temperature(temperature) {}
 
 TemperatureData::~TemperatureData() {}
 
 bool TemperatureData::operator<(const TemperatureData& b) {
-	// TODO: implement this function
+	if (this->id == b.id) {
+		DEBUG("ids same")
+		if (this->year == b.year) {
+			DEBUG("years same")
+			if (this->month == b.month) {
+				DEBUG("month same")
+				DEBUG("sorted based on temp")
+				return (this->temperature < b.temperature);
+			}
+			else {
+				DEBUG("sorted based on month")
+				return (this->month < b.month);
+			}
+		}
+		else {
+			DEBUG("sorted based on year")
+			return (this->year < b.year);
+		}
+	}
+	else {
+		DEBUG("sorted based on id")
+		return (this->id < b.id);
+	}
 }
 
