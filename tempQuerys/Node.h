@@ -12,6 +12,8 @@ struct Node {
 		Node(std::string id, int year, int month, double temperature);
 		bool operator<(const Node& b);
 		virtual ~Node() {}
+
+		void printData();
 };
 
 # endif

@@ -2,13 +2,9 @@
 #include <iostream>
 using std::string;
 
-#define DEBUG(X) std::cout << "[DEBUG] " << X << std::endl;
+#define DEBUG(X) if(false){std::cout << "[DEBUG] " << X << std::endl;}
 
-TemperatureData::TemperatureData():
-id(0),
-year(0),
-month(0),
-temperature(-99.99) {}
+TemperatureData::TemperatureData() {}
 
 TemperatureData::TemperatureData(string id, int year, int month, double temperature):
 id(id),

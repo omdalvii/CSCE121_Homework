@@ -1,4 +1,5 @@
 # include <string>
+# include <iostream>
 # include "Node.h"
 
 using std::string;
@@ -7,7 +8,7 @@ Node::Node() {
 	TemperatureData data;
 
 	this->data = data;
-	this->next = next;
+	this->next = nullptr;
 }
 
 Node::Node(string id, int year, int month, double temperature) {
@@ -19,4 +20,11 @@ Node::Node(string id, int year, int month, double temperature) {
 
 bool Node::operator<(const Node& b) {	
 	return this->data < b.data;
+}
+
+void Node::printData() {
+	std::cout << data.id << " "
+			  << data.year << " "
+			  << data.month << " "
+			  << data.temperature << std::endl;
 }

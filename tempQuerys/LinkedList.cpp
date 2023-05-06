@@ -1,9 +1,12 @@
 # include <iostream>
 # include <string>
+# include <sstream>
 # include "LinkedList.h"
 # include "Node.h"
 
 using std::string, std::ostream;
+
+# define DEBUG(X) if(false){std::cout << "[DEBUG: LinkedList.cpp] " << X << std::endl;}
 
 LinkedList::LinkedList():
 head(nullptr),
@@ -58,21 +61,27 @@ void LinkedList::insert(string location, int year, int month, double temperature
 	if (head == nullptr) { // Case empty list (gets inserted as new head/tail)
 		head = addNode;
 		tail = addNode;
+
+		DEBUG("First node in list! Setting node as head/tail.")
 	}
-	else if (addNode < head) { // Case new node is less than head node (gets inserted as new head)
+	else if (*addNode < *head) { // Case new node is less than head node (gets inserted as new head)
 		addNode->next = head;
 		head = addNode;
+
+		DEBUG("Node is less than current head! Setting node as new head.")
 	}
-	else if (tail < addNode) { // Case new node is greater than tail node (gets inserted as new tail)
+	else if (*tail < *addNode) { // Case new node is greater than tail node (gets inserted as new tail)
 		tail->next = addNode;
 		tail = addNode;
+
+		DEBUG("Node is greater than current tail! Setting node as new tail.");
 	}
 	else {					   // Case new node is somewhere in middle (have to find location to insert)
 		Node* checkNode = head;
 		Node* nextNode = checkNode->next;
 		
 		while(checkNode != nullptr) {
-			if(checkNode < addNode && addNode < nextNode){
+			if(*checkNode < *addNode && *addNode < *nextNode){
 				checkNode->next = addNode;
 				addNode->next = nextNode;
 
@@ -106,7 +115,21 @@ Node* LinkedList::getHead() const {
 string LinkedList::print() const {
 	string outputString;
 
-	// TODO: implement this function
+	Node* currNode = head;
+	while (currNode != nullptr) {
+		TemperatureData data = currNode->data; 
+
+		std::stringstream ss;
+
+		ss << data.id << " "
+		   << data.year << " "
+		   << data.month << " "
+		   << data.temperature << "\n";
+
+		outputString += ss.str();
+
+		currNode = currNode->next;
+	}
 
 	return outputString;
 }

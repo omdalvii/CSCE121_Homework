@@ -26,8 +26,7 @@ class MyString {
 
     MyString& operator = (const MyString& str);
     MyString& operator += (const MyString& str);
+    friend std::ostream& operator << (std::ostream& os, const MyString& str);
 };
-
-std::ostream& operator << (std::ostream& os, const MyString& str);
 
 # endif
